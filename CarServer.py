@@ -22,7 +22,7 @@ def home():
     # Serve the HTML file
     return app.send_static_file('hello.html')
 
-@app.route('/', methods=['GET'])
+@app.route('/get', methods=['GET'])
 @auth.login_required
 def home():
     # Serve the HTML file
@@ -34,7 +34,7 @@ def home():
     # Serve the HTML file
     return app.send_static_file('hello.html')
 
-@app.route('/home', methods=['GET'])
+@app.route('/home-get', methods=['GET'])
 @auth.login_required
 def home():
     # Serve the HTML file
