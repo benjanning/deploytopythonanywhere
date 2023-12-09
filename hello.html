@@ -5,12 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Cars and Customers</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
 </head>
 
 <body>
-    >
+    <!-- Car Section -->
     <h1>CARS</h1>
-    
+    <div> <button id="showCreateCarButton" class="btn btn-success">Create Car</button></div>
+    <div>
+        <table class="table table-striped table-dark table-bordered table-hover" id="carTable">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Reg</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Car Table rows will be added here -->
+            </tbody>
+        </table>
+    </div>
+    <div id='createUpdateCarForm' style="display: none">
+        <h2><span id="createCarLabel">Create a</span><span id="updateCarLabel" style="display: none;">Update</span> Car</h2>
+        <input type="hidden" id="carId"/>
+        Reg <input type="text" id="carReg" /><br/>
+        Model <input type="text" id="carModel"/> <br/>
+        Price <input type="number" id="carPrice"/> <br/>
+        <button id="doCreateCarButton" class="btn btn-primary">Create Car</button>
+        <button id="doUpdateCarButton" class="btn btn-warning" style="display: none;">Update Car</button>
+    </div>
+
+    <!-- Customer Section -->
+    <h1>CUSTOMERS</h1>
+    <div> <button id="showCreateCustomerButton" class="btn btn-success">Create Customer</button></div>
+    <div>
+        <table class="table table-striped table-dark table-bordered table-hover" id="customerTable">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Reg</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Customer Table rows will be added here -->
+            </tbody>
+        </table>
+    </div>
+    <div id='createUpdateCustomerForm' style="display: none">
+        <h2><span id="createCustomerLabel">Create a</span><span id="updateCustomerLabel" style="display: none;">Update</span> Customer</h2>
+        <input type="hidden" id="customerId"/>
+        Reg <input type="text" id="customerReg"/> <br/>
+        Name <input type="text" id="customerName" /><br/>
+        Price <input type="text" id="customerPrice" /><br/>
+        <button id="doCreateCustomerButton" class="btn btn-primary">Create Customer</button>
+        <button id="doUpdateCustomerButton" class="btn btn-warning" style="display: none;">Update Customer</button>
+    </div>
+
+    <script src="cars_customers.js"></script>
 </body>
 </html>
