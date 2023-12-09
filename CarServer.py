@@ -24,25 +24,25 @@ def home():
 
 @app.route('/get', methods=['GET'])
 @auth.login_required
-def home():
+def home2():
     # Serve the HTML file
     return app.send_static_file('hello.html')
 
 @app.route('/home')
 @auth.login_required
-def home():
+def home3():
     # Serve the HTML file
     return app.send_static_file('hello.html')
 
 @app.route('/home-get', methods=['GET'])
 @auth.login_required
-def home():
+def home4():
     # Serve the HTML file
     return app.send_static_file('hello.html')
 
 @app.route('/hello', methods=['GET'])
 @auth.login_required
-def home():
+def home5():
     # Serve the HTML file
     return app.send_static_file('./hello.html')
 
