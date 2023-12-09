@@ -16,35 +16,11 @@ def verify_password(username, password):
     if username in USER_DATA and USER_DATA[username] == password:
         return username
 
-@app.route('/')
+@app.route('/home', methods=['GET'])
 @auth.login_required
 def home():
     # Serve the HTML file
-    return app.send_static_file('hello.html')
-
-@app.route('/get', methods=['GET'])
-@auth.login_required
-def home2():
-    # Serve the HTML file
-    return app.send_static_file('hello.html')
-
-@app.route('/home')
-@auth.login_required
-def home3():
-    # Serve the HTML file
-    return app.send_static_file('hello.html')
-
-@app.route('/home-get', methods=['GET'])
-@auth.login_required
-def home4():
-    # Serve the HTML file
-    return app.send_static_file('hello.html')
-
-@app.route('/hello', methods=['GET'])
-@auth.login_required
-def home5():
-    # Serve the HTML file
-    return app.send_static_file('./hello.html')
+    return app.send_static_file('CarServer.html')
 
 # Initialize Customer Dao
 CustomerDao = CustomerDAO()
