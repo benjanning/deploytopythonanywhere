@@ -16,7 +16,7 @@ def verify_password(username, password):
     if username in USER_DATA and USER_DATA[username] == password:
         return username
 
-@app.route('/')
+@app.route('/home')
 @auth.login_required
 def home():
     # Serve the HTML file
