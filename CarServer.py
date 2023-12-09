@@ -17,7 +17,7 @@ def verify_password(username, password):
         return username
 
 @app.route('/home', methods=['GET'])
-@auth.login_required
+# @auth.login_required
 def home():
     # Serve the HTML file
     return app.send_static_file('hello.html')
