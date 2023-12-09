@@ -20,7 +20,7 @@ def verify_password(username, password):
 @auth.login_required
 def home():
     # Serve the HTML file
-    return app.send_static_file('CarServer.html')
+    return app.send_static_file('hello.html')
 
 # Initialize Customer Dao
 CustomerDao = CustomerDAO()
