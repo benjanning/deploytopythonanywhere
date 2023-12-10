@@ -110,7 +110,7 @@
             }
 
             function showUpdateCar(carId) {
-                $.get("http://cars/" + carId, function(car) {
+                $.get("/cars/" + carId, function(car) {
                     $("#carId").val(car.id);
                     $("#carReg").val(car.Reg);
                     $("#carModel").val(car.Model);
@@ -130,7 +130,7 @@
                     Price: $("#carPrice").val()
                 };
                 $.ajax({
-                    url: "http://cars",
+                    url: "/cars",
                     method: "POST",
                     contentType: "application/json",
                     data: JSON.stringify(car),
@@ -150,7 +150,7 @@
                     Price: $("#carPrice").val()
                 };
                 $.ajax({
-                    url: "http://cars/" + car.id,
+                    url: "/cars/" + car.id,
                     method: "PUT",
                     contentType: "application/json",
                     data: JSON.stringify(car),
@@ -164,7 +164,7 @@
 
             function doDeleteCar(carId) {
                 $.ajax({
-                    url: "http://cars/" + carId,
+                    url: "/cars/" + carId,
                     method: "DELETE",
                     success: function() {
                         removeCarFromTable(carId);
@@ -173,7 +173,7 @@
             }
 
             function getAllCars() {
-                $.get("http://cars", function(cars) {
+                $.get("/cars", function(cars) {
                     cars.forEach(function(car) {
                         addCarToTable(car);
                     });
@@ -249,7 +249,7 @@
             }
 
             function showUpdateCustomer(customerId) {
-                $.get("http://customer/" + customerId, function(customer) {
+                $.get("/customer/" + customerId, function(customer) {
                     $("#customerId").val(customer.id);
                     $("#customerReg").val(customer.Reg);
                     $("#customerName").val(customer.Name);
@@ -269,7 +269,7 @@
                     Price: $("#customerPrice").val()
                 };
                 $.ajax({
-                    url: "http://customer",
+                    url: "/customer",
                     method: "POST",
                     contentType: "application/json",
                     data: JSON.stringify(customer),
@@ -289,7 +289,7 @@
                     Price: $("#customerPrice").val()
                 };
                 $.ajax({
-                    url: "http://customer/" + customer.id,
+                    url: "/customer/" + customer.id,
                     method: "PUT",
                     contentType: "application/json",
                     data: JSON.stringify(customer),
@@ -304,7 +304,7 @@
 
             function doDeleteCustomer(customerId) {
                 $.ajax({
-                    url: "http://customer/" + customerId,
+                    url: "/customer/" + customerId,
                     method: "DELETE",
                     success: function() {
                         removeCustomerFromTable(customerId);
@@ -313,7 +313,7 @@
             }
 
             function getAllCustomer() {
-                $.get("http://customer", function(customer) {
+                $.get("/customer", function(customer) {
                     customer.forEach(function(customer) {
                         addCustomerToTable(customer);
                     });
