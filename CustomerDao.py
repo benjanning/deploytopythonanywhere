@@ -1,10 +1,9 @@
 import mysql.connector
-from mysql.connector import Error
 import dbconfig as cfg
 
 class CustomerDAO:
-    def __init__(self):
-        self.db = mysql.connector.connect(
+    def get_connection(self):
+        return mysql.connector.connect(
             host=cfg.mysql['host'],
             user=cfg.mysql['user'],
             password=cfg.mysql['password'],
@@ -12,50 +11,57 @@ class CustomerDAO:
         )
 
     def create(self, customer):
-        cursor = self.db.cursor()
+        connection = self.get_connection()
+        cursor = connection.cursor()
         sql = "INSERT INTO customer (reg, name, price) VALUES (%s, %s, %s)"
         values = (customer['Reg'], customer['Name'], customer['Price'])
-
         cursor.execute(sql, values)
-        self.db.commit()
+        connection.commit()
         lastrowid = cursor.lastrowid
         cursor.close()
+        connection.close()
         return lastrowid
 
     def getAll(self):
-        cursor = self.db.cursor()
+        connection = self.get_connection()
+        cursor = connection.cursor()
         sql = "SELECT * FROM customer"
         cursor.execute(sql)
         results = cursor.fetchall()
         cursor.close()
+        connection.close()
         return [self.convertToDictionary(result) for result in results]
 
     def findByID(self, id):
-        cursor = self.db.cursor()
+        connection = self.get_connection()
+        cursor = connection.cursor()
         sql = "SELECT * FROM customer WHERE id = %s"
         values = (id,)
-
         cursor.execute(sql, values)
         result = cursor.fetchone()
         cursor.close()
+        connection.close()
         return self.convertToDictionary(result) if result else None
 
     def update(self, id, customer):
-        cursor = self.db.cursor()
+        connection = self.get_connection()
+        cursor = connection.cursor()
         sql = "UPDATE customer SET reg = %s, name = %s, price = %s WHERE id = %s"
         values = (customer['Reg'], customer['Name'], customer['Price'], id)
         cursor.execute(sql, values)
-        self.db.commit()
+        connection.commit()
         cursor.close()
+        connection.close()
 
     def delete(self, id):
-        cursor = self.db.cursor()
-        sql = "DELETE FROM customers WHERE id = %s"
+        connection = self.get_connection()
+        cursor = connection.cursor()
+        sql = "DELETE FROM customer WHERE id = %s"
         values = (id,)
-
         cursor.execute(sql, values)
-        self.db.commit()
+        connection.commit()
         cursor.close()
+        connection.close()
 
     def convertToDictionary(self, result):
         colnames = ['id', 'Reg', 'Name', 'Price']
