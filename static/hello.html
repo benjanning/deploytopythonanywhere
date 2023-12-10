@@ -110,7 +110,7 @@
             }
 
             function showUpdateCar(carId) {
-                $.get("/cars/" + carId, function(car) {
+                $.get("https://benjanning2.pythonanywhere.com/cars/" + carId, function(car) {
                     $("#carId").val(car.id);
                     $("#carReg").val(car.Reg);
                     $("#carModel").val(car.Model);
@@ -249,7 +249,7 @@
             }
 
             function showUpdateCustomer(customerId) {
-                $.get("/customer/" + customerId, function(customer) {
+                $.get("https://benjanning2.pythonanywhere.com/customer/" + customerId, function(customer) {
                     $("#customerId").val(customer.id);
                     $("#customerReg").val(customer.Reg);
                     $("#customerName").val(customer.Name);
