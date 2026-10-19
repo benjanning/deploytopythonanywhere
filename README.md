@@ -29,4 +29,4 @@ The database and Flask app require additional setup on PythonAnywhere or another
 
 **Project maturity:** This is an educational deployment experiment, **not a production-ready authentication or booking service**. Demo passwords and endpoints need hardening before public deployment.
 
-[See the main case study](https://github.com/benjanning/data-representation-project) · [Explore my portfolio](https://github.com/benjanning/programming2022)
+[See the main case study](https://github.com/benjanning/data-representation-project) · [Explore my portfolio](https://benjanning.github.io/projects/)
