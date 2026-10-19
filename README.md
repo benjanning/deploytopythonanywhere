@@ -22,6 +22,8 @@ This repository **does not include live database credentials**. Supply these env
 | `DB_USER` | MySQL user |
 | `DB_PASSWORD` | MySQL password |
 | `DB_NAME` | Database name |
+| `DEMO_USERNAME` | Demonstration login name |
+| `DEMO_PASSWORD` | Demonstration login password |
 
 The database and Flask app require additional setup on PythonAnywhere or another suitable host. An old class demonstration URL is not guaranteed to remain online.
 
